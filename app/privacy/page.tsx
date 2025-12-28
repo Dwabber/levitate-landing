@@ -1,0 +1,118 @@
+"use client"
+
+import { motion } from "framer-motion"
+
+export default function PrivacyPage() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-[#e8e4df] to-[#f5f2ee]">
+      <div className="container mx-auto px-6 py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto bg-card rounded-3xl shadow-xl p-8 md:p-12"
+        >
+          <div className="text-center mb-12 pb-8 border-b border-border/30">
+            <a href="/" className="inline-flex items-center gap-2 mb-8 group">
+              <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-lg">L</span>
+              </div>
+              <span className="font-bold text-xl text-foreground group-hover:text-primary transition-colors">
+                LEVITATE
+              </span>
+            </a>
+          </div>
+
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-2 text-foreground">Privacy Policy</h1>
+          <p className="text-center text-muted-foreground text-sm mb-12">Last Updated: December 28, 2025</p>
+
+          <div className="space-y-8 text-foreground/80">
+            <p className="leading-relaxed">
+              Levitate ("we", "our", or "us") is dedicated to protecting your privacy. This policy outlines exactly how
+              your data is handled.
+            </p>
+
+            <div>
+              <h2 className="text-xl font-bold mb-4 text-foreground uppercase tracking-wide">1. Data Collection</h2>
+              <p className="mb-3 leading-relaxed">
+                We believe in data minimalism. We only collect what is strictly necessary to provide our service:
+              </p>
+              <ul className="list-disc list-inside space-y-2 pl-4 leading-relaxed">
+                <li>
+                  <strong className="text-foreground">Authentication:</strong> Basic account details (email) to manage
+                  your secure login.
+                </li>
+                <li>
+                  <strong className="text-foreground">Check-in Data:</strong> Moods and reflections you explicitly log,
+                  used solely to generate your personalized sessions.
+                </li>
+                <li>
+                  <strong className="text-foreground">Usage Metrics:</strong> Anonymous data about which features are
+                  used, to help us improve the app.
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-bold mb-4 text-foreground uppercase tracking-wide">2. Data Usage</h2>
+              <p className="mb-3 leading-relaxed">Your data is used exclusively to:</p>
+              <ul className="list-disc list-inside space-y-2 pl-4 leading-relaxed">
+                <li>Generate personalized meditation scripts and audio.</li>
+                <li>Sync your progress across your devices.</li>
+                <li>Provide customer support when requested.</li>
+              </ul>
+              <p className="mt-3 leading-relaxed">
+                We do <strong className="text-foreground">not</strong> sell your data to any third parties or
+                advertisers.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-bold mb-4 text-foreground uppercase tracking-wide">3. Security</h2>
+              <p className="leading-relaxed">
+                All data is encrypted in transit (SSL) and at rest using industry-standard protocols. Our database
+                provided by Supabase ensures high-security standards.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-bold mb-4 text-foreground uppercase tracking-wide">4. Your Rights</h2>
+              <p className="leading-relaxed">
+                You have full ownership of your data. You may request a complete export or deletion of your data at any
+                time by contacting us at{" "}
+                <a href="mailto:jiggsdwabber@gmail.com" className="text-primary font-semibold hover:underline">
+                  jiggsdwabber@gmail.com
+                </a>
+                .
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-xl font-bold mb-4 text-foreground uppercase tracking-wide">5. Contact Us</h2>
+              <p className="leading-relaxed">
+                If you have any questions regarding your privacy, please contact us at{" "}
+                <a href="mailto:jiggsdwabber@gmail.com" className="text-primary font-semibold hover:underline">
+                  jiggsdwabber@gmail.com
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-16 pt-8 border-t border-border/30 text-center">
+            <div className="flex items-center justify-center gap-6 text-sm mb-4">
+              <a href="/support" className="text-muted-foreground hover:text-primary transition-colors">
+                Support
+              </a>
+              <span className="text-muted-foreground">•</span>
+              <a href="/terms" className="text-muted-foreground hover:text-primary transition-colors">
+                Terms of Service
+              </a>
+            </div>
+            <p className="text-muted-foreground text-sm">© 2025 Levitate</p>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  )
+}
