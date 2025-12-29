@@ -64,51 +64,92 @@ export default function Page() {
         {/* Mobile Navigation Overlay */}
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden border-t border-border/30 bg-card/95 backdrop-blur-md overflow-hidden"
-            >
-              <nav className="flex flex-col p-6 gap-4 text-center">
-                <a
-                  href="#features"
-                  className="text-foreground py-2 hover:text-primary transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Features
-                </a>
-                <a
-                  href="/about"
-                  className="text-foreground py-2 hover:text-primary transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  About Levitate
-                </a>
-                <a
-                  href="/support"
-                  className="text-foreground py-2 hover:text-primary transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Support
-                </a>
-                <a
-                  href="/privacy"
-                  className="text-foreground py-2 hover:text-primary transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Privacy Policy
-                </a>
-                <div className="pt-4">
+            <>
+              {/* Backdrop */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setIsMenuOpen(false)}
+                className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
+              />
+
+              {/* Slide-over Menu */}
+              <motion.div
+                initial={{ x: "100%" }}
+                animate={{ x: 0 }}
+                exit={{ x: "100%" }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                className="fixed top-0 right-0 bottom-0 w-3/4 max-w-sm bg-card border-l border-border/30 shadow-2xl z-50 md:hidden p-6 flex flex-col"
+              >
+                {/* Header with Close Button */}
+                <div className="flex items-center justify-between mb-8">
+                  <span className="font-bold text-xl text-foreground">Menu</span>
+                  <button
+                    className="p-2 -mr-2 text-foreground hover:bg-primary/10 rounded-full transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
+                </div>
+
+                {/* Nav Links */}
+                <nav className="flex flex-col gap-2">
+                  <a
+                    href="#features"
+                    className="flex items-center gap-4 p-3 rounded-xl hover:bg-primary/5 text-foreground transition-colors font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                      <Brain className="w-5 h-5" />
+                    </div>
+                    Features
+                  </a>
+                  <a
+                    href="/about"
+                    className="flex items-center gap-4 p-3 rounded-xl hover:bg-primary/5 text-foreground transition-colors font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                      <Moon className="w-5 h-5" />
+                    </div>
+                    About Levitate
+                  </a>
+                  <a
+                    href="/support"
+                    className="flex items-center gap-4 p-3 rounded-xl hover:bg-primary/5 text-foreground transition-colors font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                      <Lock className="w-5 h-5" />
+                    </div>
+                    Support
+                  </a>
+                  <a
+                    href="/privacy"
+                    className="flex items-center gap-4 p-3 rounded-xl hover:bg-primary/5 text-foreground transition-colors font-medium"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                      <span className="text-lg font-bold">P</span>
+                    </div>
+                    Privacy Policy
+                  </a>
+                </nav>
+
+                <div className="mt-auto pt-8">
                   <a
                     href="#"
-                    className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-full font-semibold text-sm w-full"
+                    className="flex items-center justify-center w-full bg-primary text-primary-foreground px-6 py-4 rounded-xl font-bold text-lg shadow-lg hover:opacity-90 transition-opacity"
                   >
                     Download App
                   </a>
+                  <p className="text-center text-xs text-muted-foreground mt-4">
+                    v1.0.0 • iOS only
+                  </p>
                 </div>
-              </nav>
-            </motion.div>
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
       </header>
