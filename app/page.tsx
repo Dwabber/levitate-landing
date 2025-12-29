@@ -1,11 +1,12 @@
 "use client"
 
-import { motion, useScroll, useTransform } from "framer-motion"
-import { Brain, Moon, Lock } from "lucide-react"
-import { useRef } from "react"
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion"
+import { Brain, Moon, Lock, Menu, X } from "lucide-react"
+import { useRef, useState } from "react"
 
 export default function Page() {
   const heroRef = useRef<HTMLDivElement>(null)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
@@ -16,7 +17,7 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#e8e4df] to-[#f5f2ee]">
       {/* Header Navigation */}
-      <header className="border-b border-border/30 bg-card/50 backdrop-blur-sm">
+      <header className="border-b border-border/30 bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
@@ -30,25 +31,86 @@ export default function Page() {
               Features
             </a>
             <a href="/about" className="text-foreground hover:text-primary transition-colors">
-              About Levitate
+              About
             </a>
             <a href="/support" className="text-foreground hover:text-primary transition-colors">
               Support
             </a>
             <a href="/privacy" className="text-foreground hover:text-primary transition-colors">
-              Privacy Policy
+              Privacy
             </a>
           </nav>
 
-          <motion.a
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            href="#"
-            className="bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity"
-          >
-            Download App
-          </motion.a>
+          <div className="flex items-center gap-4">
+            <motion.a
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              href="#"
+              className="bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity hidden md:block"
+            >
+              Download App
+            </motion.a>
+
+            {/* Mobile Menu Toggle */}
+            <button
+              className="md:hidden p-2 text-foreground"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X /> : <Menu />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Navigation Overlay */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden border-t border-border/30 bg-card/95 backdrop-blur-md overflow-hidden"
+            >
+              <nav className="flex flex-col p-6 gap-4 text-center">
+                <a
+                  href="#features"
+                  className="text-foreground py-2 hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Features
+                </a>
+                <a
+                  href="/about"
+                  className="text-foreground py-2 hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  About Levitate
+                </a>
+                <a
+                  href="/support"
+                  className="text-foreground py-2 hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Support
+                </a>
+                <a
+                  href="/privacy"
+                  className="text-foreground py-2 hover:text-primary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Privacy Policy
+                </a>
+                <div className="pt-4">
+                  <a
+                    href="#"
+                    className="inline-block bg-primary text-primary-foreground px-8 py-3 rounded-full font-semibold text-sm w-full"
+                  >
+                    Download App
+                  </a>
+                </div>
+              </nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       {/* Hero Section */}
