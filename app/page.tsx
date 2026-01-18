@@ -235,7 +235,7 @@ export default function Page() {
           transition={{ duration: 1.2, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
           className="max-w-sm mx-auto relative"
         >
-          <div className="relative aspect-[9/19.5] rounded-[3rem] bg-[#0a0a0a] shadow-2xl overflow-hidden">
+          <div className="relative aspect-[9/19.5] rounded-[3rem] bg-transparent shadow-2xl overflow-hidden">
             <div className="absolute inset-0">
               <div className="h-full w-full overflow-hidden">
                 <motion.div
@@ -256,7 +256,7 @@ export default function Page() {
                 </motion.div>
               </div>
             </div>
-            <div className="absolute inset-0 rounded-[3rem] ring-1 ring-white/10 pointer-events-none" />
+            <div className="absolute inset-0 rounded-[3rem] ring-1 ring-black/10 pointer-events-none" />
           </div>
 
           {/* Shadow underneath iPhone */}
