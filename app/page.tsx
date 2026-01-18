@@ -2,17 +2,27 @@
 
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion"
 import { Brain, Moon, Lock, Menu, X } from "lucide-react"
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export default function Page() {
   const heroRef = useRef<HTMLDivElement>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [currentSlide, setCurrentSlide] = useState(0)
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
   })
 
   const phoneY = useTransform(scrollYProgress, [0, 1], [200, -400])
+  const slides = ["/home.png", "/emotion.png", "/player.png"]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length)
+    }, 4500)
+
+    return () => clearInterval(interval)
+  }, [slides.length])
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#e8e4df] to-[#f5f2ee]">
@@ -239,13 +249,24 @@ export default function Page() {
 
             {/* Screen */}
             <div className="w-full h-full rounded-[2.8rem] bg-gradient-to-br from-zinc-900 to-zinc-800 overflow-hidden relative">
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
-                <div className="text-center space-y-4 px-8">
-                  <div className="w-16 h-16 mx-auto bg-primary/20 rounded-2xl flex items-center justify-center">
-                    <span className="text-primary font-bold text-2xl">L</span>
-                  </div>
-                  <div className="text-white/40 text-sm font-medium">Replace with app screenshot</div>
-                  <div className="text-white/20 text-xs">Add your Levitate app screenshot here</div>
+              <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
+                <div className="h-full w-full overflow-hidden">
+                  <motion.div
+                    className="h-full w-full flex flex-col"
+                    animate={{ y: `-${currentSlide * 100}%` }}
+                    transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
+                    style={{ willChange: "transform" }}
+                  >
+                    {slides.map((src, index) => (
+                      <div key={src} className="h-full w-full flex-shrink-0">
+                        <img
+                          src={src}
+                          alt={index === 0 ? "Levitate home screen" : index === 1 ? "Levitate emotion check-in" : "Levitate session player"}
+                          className="h-full w-full object-cover"
+                        />
+                      </div>
+                    ))}
+                  </motion.div>
                 </div>
               </div>
               {/* Screen Glare Effect */}
