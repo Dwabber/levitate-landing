@@ -227,7 +227,7 @@ export default function Page() {
           </motion.a>
         </div>
 
-        {/* iPhone Mockup */}
+        {/* App Screens Carousel */}
         <motion.div
           style={{ y: phoneY }}
           initial={{ y: 200 }}
@@ -235,46 +235,28 @@ export default function Page() {
           transition={{ duration: 1.2, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
           className="max-w-sm mx-auto relative"
         >
-          {/* iPhone 17 Pro Frame */}
-          <div className="relative aspect-[9/19.5] rounded-[3.5rem] border-[12px] border-[#0a0a0a] bg-[#0a0a0a] shadow-2xl overflow-hidden">
-            {/* Dynamic Island */}
-            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-[120px] h-[35px] bg-[#0a0a0a] rounded-[2rem] z-10 shadow-inner" />
-
-            {/* Power Button */}
-            <div className="absolute right-[-12px] top-[120px] w-[4px] h-[80px] bg-[#0a0a0a] rounded-l-sm" />
-
-            {/* Volume Buttons */}
-            <div className="absolute left-[-12px] top-[100px] w-[4px] h-[50px] bg-[#0a0a0a] rounded-r-sm" />
-            <div className="absolute left-[-12px] top-[170px] w-[4px] h-[50px] bg-[#0a0a0a] rounded-r-sm" />
-
-            {/* Screen */}
-            <div className="w-full h-full rounded-[2.8rem] bg-gradient-to-br from-zinc-900 to-zinc-800 overflow-hidden relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-800 to-zinc-900">
-                <div className="h-full w-full overflow-hidden">
-                  <motion.div
-                    className="h-full w-full flex flex-col"
-                    animate={{ y: `-${currentSlide * 100}%` }}
-                    transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
-                    style={{ willChange: "transform" }}
-                  >
-                    {slides.map((src, index) => (
-                      <div key={src} className="h-full w-full flex-shrink-0">
-                        <img
-                          src={src}
-                          alt={index === 0 ? "Levitate home screen" : index === 1 ? "Levitate emotion check-in" : "Levitate session player"}
-                          className="h-full w-full object-cover"
-                        />
-                      </div>
-                    ))}
-                  </motion.div>
-                </div>
+          <div className="relative aspect-[9/19.5] rounded-[3rem] bg-[#0a0a0a] shadow-2xl overflow-hidden">
+            <div className="absolute inset-0">
+              <div className="h-full w-full overflow-hidden">
+                <motion.div
+                  className="h-full w-full flex flex-row"
+                  animate={{ x: `-${currentSlide * 100}%` }}
+                  transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
+                  style={{ willChange: "transform" }}
+                >
+                  {slides.map((src, index) => (
+                    <div key={src} className="h-full w-full flex-shrink-0">
+                      <img
+                        src={src}
+                        alt={index === 0 ? "Levitate home screen" : index === 1 ? "Levitate emotion check-in" : "Levitate session player"}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  ))}
+                </motion.div>
               </div>
-              {/* Screen Glare Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none" />
             </div>
-
-            {/* Screen Reflection */}
-            <div className="absolute inset-0 rounded-[2.8rem] bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-0 rounded-[3rem] ring-1 ring-white/10 pointer-events-none" />
           </div>
 
           {/* Shadow underneath iPhone */}
