@@ -2,12 +2,11 @@
 
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion"
 import { Brain, Moon, Lock, Menu, X } from "lucide-react"
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 
 export default function Page() {
   const heroRef = useRef<HTMLDivElement>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [currentSlide, setCurrentSlide] = useState(0)
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
@@ -15,14 +14,6 @@ export default function Page() {
 
   const phoneY = useTransform(scrollYProgress, [0, 1], [200, -400])
   const slides = ["/home.png", "/emotion.png", "/player.png"]
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 4500)
-
-    return () => clearInterval(interval)
-  }, [slides.length])
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#e8e4df] to-[#f5f2ee]">
@@ -239,13 +230,17 @@ export default function Page() {
             <div className="absolute inset-0">
               <div className="h-full w-full overflow-hidden">
                 <motion.div
-                  className="h-full w-full flex flex-row"
-                  animate={{ x: `-${currentSlide * 100}%` }}
-                  transition={{ duration: 0.9, ease: [0.25, 0.1, 0.25, 1] }}
+                  className="h-full w-max flex flex-row"
+                  animate={{ x: ["0%", `-${slides.length * 100}%`] }}
+                  transition={{
+                    duration: slides.length * 6,
+                    ease: "linear",
+                    repeat: Infinity,
+                  }}
                   style={{ willChange: "transform" }}
                 >
-                  {slides.map((src, index) => (
-                    <div key={src} className="h-full w-full flex-shrink-0">
+                  {[...slides, ...slides].map((src, index) => (
+                    <div key={`${src}-${index}`} className="h-full w-full flex-shrink-0">
                       <img
                         src={src}
                         alt={index === 0 ? "Levitate home screen" : index === 1 ? "Levitate emotion check-in" : "Levitate session player"}
