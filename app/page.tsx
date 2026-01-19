@@ -3,6 +3,7 @@
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion"
 import { Brain, Moon, Lock, Menu, X } from "lucide-react"
 import { useRef, useState } from "react"
+import { Carousel3D } from "./components/carousel-3d"
 
 export default function Page() {
   const heroRef = useRef<HTMLDivElement>(null)
@@ -13,7 +14,6 @@ export default function Page() {
   })
 
   const phoneY = useTransform(scrollYProgress, [0, 1], [200, -400])
-  const slides = ["/home.png", "/emotion.png", "/player.png"]
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#e8e4df] to-[#f5f2ee]">
@@ -218,44 +218,15 @@ export default function Page() {
           </motion.a>
         </div>
 
-        {/* App Screens Carousel */}
+        {/* App Screens 3D Carousel */}
         <motion.div
           style={{ y: phoneY }}
-          initial={{ y: 200 }}
-          animate={{ y: 0 }}
+          initial={{ y: 200, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-          className="max-w-sm mx-auto relative"
+          className="w-full max-w-5xl mx-auto relative mt-4"
         >
-          <div className="relative aspect-[9/19.5] rounded-[3rem] bg-transparent shadow-2xl overflow-hidden">
-            <div className="absolute inset-0">
-              <div className="h-full w-full overflow-hidden">
-                <motion.div
-                  className="h-full w-max flex flex-row"
-                  animate={{ x: ["0%", `-${slides.length * 100}%`] }}
-                  transition={{
-                    duration: slides.length * 6,
-                    ease: "linear",
-                    repeat: Infinity,
-                  }}
-                  style={{ willChange: "transform" }}
-                >
-                  {[...slides, ...slides].map((src, index) => (
-                    <div key={`${src}-${index}`} className="h-full w-full flex-shrink-0">
-                      <img
-                        src={src}
-                        alt={index === 0 ? "Levitate home screen" : index === 1 ? "Levitate emotion check-in" : "Levitate session player"}
-                        className="h-full w-full object-cover"
-                      />
-                    </div>
-                  ))}
-                </motion.div>
-              </div>
-            </div>
-            <div className="absolute inset-0 rounded-[3rem] ring-1 ring-black/10 pointer-events-none" />
-          </div>
-
-          {/* Shadow underneath iPhone */}
-          <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[90%] h-24 bg-black/20 blur-3xl rounded-full" />
+          <Carousel3D />
         </motion.div>
       </motion.section>
 
