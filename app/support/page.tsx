@@ -10,19 +10,8 @@ export default function SupportPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto bg-card rounded-3xl shadow-xl p-8 md:p-12"
+          className="max-w-3xl mx-auto"
         >
-          <div className="text-center mb-12 pb-8 border-b border-border/30">
-            <a href="/" className="inline-flex items-center gap-2 mb-8 group">
-              <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">L</span>
-              </div>
-              <span className="font-bold text-xl text-foreground group-hover:text-primary transition-colors">
-                LEVITATE
-              </span>
-            </a>
-          </div>
-
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">How can we help?</h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -71,19 +60,6 @@ export default function SupportPage() {
                 </motion.a>
               </div>
             </div>
-          </div>
-
-          <div className="mt-16 pt-8 border-t border-border/30 text-center">
-            <div className="flex items-center justify-center gap-6 text-sm mb-4">
-              <a href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
-                Privacy Policy
-              </a>
-              <span className="text-muted-foreground">•</span>
-              <a href="/terms" className="text-muted-foreground hover:text-primary transition-colors">
-                Terms of Service
-              </a>
-            </div>
-            <p className="text-muted-foreground text-sm">© 2025 Levitate</p>
           </div>
         </motion.div>
       </div>
