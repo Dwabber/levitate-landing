@@ -105,7 +105,8 @@ export function Carousel3D() {
                                 <img
                                     src={img.src}
                                     alt={img.alt}
-                                    className="w-full h-auto object-contain drop-shadow-2xl"
+                                    draggable={false}
+                                    className="w-full h-auto object-contain drop-shadow-2xl select-none"
                                 />
                             </motion.div>
                         )
