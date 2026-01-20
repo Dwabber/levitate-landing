@@ -128,13 +128,6 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-center pt-12"
             >
-              <div className="inline-block p-2 rounded-full bg-white/50 backdrop-blur-md mb-8 border border-white/50">
-                <img
-                  src="/icon.png"
-                  alt="Los Verdan"
-                  className="w-16 h-16 rounded-full grayscale hover:grayscale-0 transition-all duration-500"
-                />
-              </div>
               <h2 className="text-3xl font-bold text-foreground mb-6">Rise as you are.</h2>
               <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
                 What started as my survival tool is now here for you. If you're struggling, if nothing else has worked—this
