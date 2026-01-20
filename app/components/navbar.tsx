@@ -1,12 +1,16 @@
 "use client"
 
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Brain, Moon, Lock, Menu, X } from "lucide-react"
 
 export function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const pathname = usePathname()
+
+    const isActive = (path: string) => pathname === path
 
     return (
         <>
@@ -20,18 +24,34 @@ export function Navbar() {
                     </Link>
 
                     <nav className="hidden md:flex items-center gap-8 text-sm">
-                        <a href="/#features" className="text-foreground hover:text-primary transition-colors">
+                        <Link
+                            href="/#features"
+                            className={`transition-colors ${isActive("/#features") ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+                                }`}
+                        >
                             Features
-                        </a>
-                        <a href="/about" className="text-foreground hover:text-primary transition-colors">
+                        </Link>
+                        <Link
+                            href="/about"
+                            className={`transition-colors ${isActive("/about") ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+                                }`}
+                        >
                             About
-                        </a>
-                        <a href="/support" className="text-foreground hover:text-primary transition-colors">
+                        </Link>
+                        <Link
+                            href="/support"
+                            className={`transition-colors ${isActive("/support") ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+                                }`}
+                        >
                             Support
-                        </a>
-                        <a href="/privacy" className="text-foreground hover:text-primary transition-colors">
+                        </Link>
+                        <Link
+                            href="/privacy"
+                            className={`transition-colors ${isActive("/privacy") ? "text-primary font-semibold" : "text-foreground hover:text-primary"
+                                }`}
+                        >
                             Privacy
-                        </a>
+                        </Link>
                     </nav>
 
                     <div className="flex items-center gap-4">
@@ -45,10 +65,7 @@ export function Navbar() {
                         </motion.a>
 
                         {/* Mobile Menu Toggle */}
-                        <button
-                            className="md:hidden p-2 text-foreground"
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        >
+                        <button className="md:hidden p-2 text-foreground" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                             {isMenuOpen ? <X /> : <Menu />}
                         </button>
                     </div>
@@ -89,46 +106,50 @@ export function Navbar() {
 
                             {/* Nav Links */}
                             <nav className="flex flex-col gap-2">
-                                <a
+                                <Link
                                     href="/#features"
-                                    className="flex items-center gap-4 p-3 rounded-xl hover:bg-primary/5 text-foreground transition-colors font-medium"
+                                    className={`flex items-center gap-4 p-3 rounded-xl transition-colors font-medium ${isActive("/#features") ? "bg-primary/10 text-primary" : "text-foreground hover:bg-primary/5"
+                                        }`}
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
                                         <Brain className="w-5 h-5" />
                                     </div>
                                     Features
-                                </a>
-                                <a
+                                </Link>
+                                <Link
                                     href="/about"
-                                    className="flex items-center gap-4 p-3 rounded-xl hover:bg-primary/5 text-foreground transition-colors font-medium"
+                                    className={`flex items-center gap-4 p-3 rounded-xl transition-colors font-medium ${isActive("/about") ? "bg-primary/10 text-primary" : "text-foreground hover:bg-primary/5"
+                                        }`}
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
                                         <Moon className="w-5 h-5" />
                                     </div>
                                     About Levitate
-                                </a>
-                                <a
+                                </Link>
+                                <Link
                                     href="/support"
-                                    className="flex items-center gap-4 p-3 rounded-xl hover:bg-primary/5 text-foreground transition-colors font-medium"
+                                    className={`flex items-center gap-4 p-3 rounded-xl transition-colors font-medium ${isActive("/support") ? "bg-primary/10 text-primary" : "text-foreground hover:bg-primary/5"
+                                        }`}
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
                                         <Lock className="w-5 h-5" />
                                     </div>
                                     Support
-                                </a>
-                                <a
+                                </Link>
+                                <Link
                                     href="/privacy"
-                                    className="flex items-center gap-4 p-3 rounded-xl hover:bg-primary/5 text-foreground transition-colors font-medium"
+                                    className={`flex items-center gap-4 p-3 rounded-xl transition-colors font-medium ${isActive("/privacy") ? "bg-primary/10 text-primary" : "text-foreground hover:bg-primary/5"
+                                        }`}
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
                                         <span className="text-lg font-bold">P</span>
                                     </div>
                                     Privacy Policy
-                                </a>
+                                </Link>
                             </nav>
 
                             <div className="mt-auto pt-8">
@@ -138,9 +159,7 @@ export function Navbar() {
                                 >
                                     Download App
                                 </a>
-                                <p className="text-center text-xs text-muted-foreground mt-4">
-                                    v1.0.0 • iOS only
-                                </p>
+                                <p className="text-center text-xs text-muted-foreground mt-4">v1.0.0 • iOS only</p>
                             </div>
                         </motion.div>
                     </>
