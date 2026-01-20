@@ -10,7 +10,7 @@ export default function PrivacyPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto"
+          className="max-w-3xl mx-auto text-center md:text-left"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-2 text-foreground">Privacy Policy</h1>
           <p className="text-center text-muted-foreground text-sm mb-12">Last Updated: December 28, 2025</p>
@@ -26,7 +26,7 @@ export default function PrivacyPage() {
               <p className="mb-3 leading-relaxed">
                 We believe in data minimalism. We only collect what is strictly necessary to provide our service:
               </p>
-              <ul className="list-disc list-inside space-y-2 pl-4 leading-relaxed">
+              <ul className="list-disc list-inside space-y-2 leading-relaxed inline-block text-left">
                 <li>
                   <strong className="text-foreground">Authentication:</strong> Basic account details (email) to manage
                   your secure login.
@@ -45,7 +45,7 @@ export default function PrivacyPage() {
             <div>
               <h2 className="text-xl font-bold mb-4 text-foreground uppercase tracking-wide">2. Data Usage</h2>
               <p className="mb-3 leading-relaxed">Your data is used exclusively to:</p>
-              <ul className="list-disc list-inside space-y-2 pl-4 leading-relaxed">
+              <ul className="list-disc list-inside space-y-2 leading-relaxed inline-block text-left md:block">
                 <li>Generate personalized meditation scripts and audio.</li>
                 <li>Sync your progress across your devices.</li>
                 <li>Provide customer support when requested.</li>
