@@ -1,145 +1,171 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Link from "next/link"
+import { CloudRain, Sparkles, Code, User, ArrowRight } from "lucide-react"
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#e8e4df] to-[#f5f2ee]">
-      {/* Hero Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="container mx-auto px-6 pt-16 pb-12"
-      >
-        <div className="max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-primary/30 bg-card/80 backdrop-blur-sm">
-            <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-primary-foreground text-xs font-bold">✦</span>
-            </div>
-            <span className="text-sm text-foreground">Built from lived experience</span>
+    <div className="min-h-screen bg-[#f5f2ee] relative overflow-hidden">
+      {/* Background Gradients */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-[-20%] left-[20%] w-[60%] h-[60%] bg-primary/5 rounded-full blur-3xl opacity-50" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#d4c5b5]/20 rounded-full blur-3xl opacity-60" />
+      </div>
+
+      <div className="container mx-auto px-6 py-20 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-4xl mx-auto"
+        >
+          {/* Header */}
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+              className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-primary/20 bg-white/40 backdrop-blur-md shadow-sm"
+            >
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-xs font-semibold text-primary/80 tracking-wide uppercase">The Origin Story</span>
+            </motion.div>
+            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 tracking-tight leading-tight">
+              Why I Built <span className="text-primary italic">Levitate</span>.
+            </h1>
+            <p className="text-xl text-muted-foreground/80 max-w-2xl mx-auto leading-relaxed">
+              I'm Los Verdan, and this isn't just an app. It's my survival strategy.
+            </p>
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">Why I Built Levitate</h1>
-
-          <p className="text-xl text-muted-foreground leading-relaxed">I'm Los Verdan, and this is my story.</p>
-        </div>
-      </motion.section>
-
-      {/* Story Content */}
-      <section className="container mx-auto px-6 pb-24">
-        <div className="max-w-4xl mx-auto space-y-12">
-          {/* Introduction */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-card rounded-2xl p-8 md:p-12 border border-border/50"
-          >
-            <div className="prose prose-lg max-w-none">
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                I dropped out of computer science in my junior year. Not because I couldn't handle the work—I was good
-                at it. I dropped out because I couldn't handle myself.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Mental health issues I'd been ignoring for years finally caught up with me. I thought leaving school
-                would give me space to heal. Then my father died, and everything went dark.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* The Turning Point */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="bg-gradient-to-br from-[#f5d5c8] to-[#e8c5b5] rounded-2xl p-8 md:p-12"
-          >
-            <div className="prose prose-lg max-w-none">
-              <p className="text-foreground/80 leading-relaxed mb-4">
-                I tried everything—therapy I couldn't afford, meditation apps that felt empty, breathing exercises that
-                stopped working when I needed them most. Nothing was built for someone whose mind refused to cooperate.
-              </p>
-              <p className="text-foreground/80 leading-relaxed">
-                I wasn't alone. I watched people I loved struggle with the same broken tools. So on a night when I
-                couldn't sleep, overwhelmed and desperate, I opened my laptop and started coding. Not to build a
-                business. To survive.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* The Birth of Levitate */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-card rounded-2xl p-8 md:p-12 border border-border/50"
-          >
-            <div className="prose prose-lg max-w-none">
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                Levitate became my lifeline. An app that met me exactly where I was—anxious at 3 AM, depressed on
-                Tuesday afternoon, or just trying to make it through the day. It listened to my patterns, adapted to my
-                state, and gave me what I needed in that exact moment.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                I haven't figured it all out. I'm still finding myself in all of this, still processing, still learning
-                to live with a mind that doesn't always cooperate. But Levitate helps me. One day at a time. One session
-                at a time.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* One Day at a Time */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-gradient-to-br from-[#f5d5c8] to-[#e8c5b5] rounded-2xl p-8 md:p-12"
-          >
-            <div className="prose prose-lg max-w-none">
-              <p className="text-foreground/80 leading-relaxed">
-                What started as my survival tool is now here for you. If you're struggling, if nothing else has worked,
-                if you just need something that understands—this is for you. Rise as you are, and lift above the noise.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Closing Message */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-card rounded-2xl p-8 md:p-12 border border-border/50 text-center"
-          >
-            <p className="text-muted-foreground text-lg">— Los Verdan</p>
-          </motion.div>
-
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-center pt-8"
-          >
-            <h3 className="text-2xl font-bold text-foreground mb-4">Ready to start your own journey?</h3>
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="/"
-              className="inline-block bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-opacity"
+          {/* Story Container */}
+          <div className="space-y-8">
+            {/* Chapter 1: The Fall */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-white/40 backdrop-blur-xl border border-white/50 rounded-3xl p-8 md:p-12 shadow-[0_8px_32px_rgba(0,0,0,0.04)]"
             >
-              Download Levitate
-            </motion.a>
-          </motion.div>
-        </div>
-      </section>
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                <div className="p-3 bg-primary/10 rounded-2xl text-primary flex-shrink-0">
+                  <CloudRain className="w-6 h-6" />
+                </div>
+                <div className="prose prose-stone prose-lg opacity-90 text-foreground/80">
+                  <h3 className="text-xl font-bold text-foreground mt-0 mb-4">The Breaking Point</h3>
+                  <p>
+                    I dropped out of computer science in my junior year. Not because I couldn't handle the work—I was
+                    good at it. I dropped out because I couldn't handle myself.
+                  </p>
+                  <p>
+                    Mental health issues I'd been ignoring for years finally caught up with me. I thought leaving school
+                    would give me space to heal. Then my father died, and everything went dark.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Chapter 2: The Search */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="bg-white/60 backdrop-blur-xl border border-white/60 rounded-3xl p-8 md:p-12 shadow-[0_8px_32px_rgba(0,0,0,0.04)]"
+            >
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                <div className="p-3 bg-primary/10 rounded-2xl text-primary flex-shrink-0">
+                  <Sparkles className="w-6 h-6" />
+                </div>
+                <div className="prose prose-stone prose-lg opacity-90 text-foreground/80">
+                  <h3 className="text-xl font-bold text-foreground mt-0 mb-4">Finding Silence</h3>
+                  <p>
+                    I tried everything—therapy I couldn't afford, meditation apps that felt empty, breathing exercises
+                    that stopped working when I needed them most. Nothing was built for someone whose mind refused to
+                    cooperate.
+                  </p>
+                  <p>
+                    So on a night when I couldn't sleep, overwhelmed and desperate, I opened my laptop and started
+                    coding. Not to build a business. To survive.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Chapter 3: The Solution */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-gradient-to-br from-primary/5 to-primary/10 backdrop-blur-xl border border-primary/10 rounded-3xl p-8 md:p-12 shadow-[0_8px_32px_rgba(0,0,0,0.04)]"
+            >
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                <div className="p-3 bg-primary rounded-2xl text-white flex-shrink-0 shadow-lg shadow-primary/20">
+                  <Code className="w-6 h-6" />
+                </div>
+                <div className="prose prose-stone prose-lg opacity-90 text-foreground/80">
+                  <h3 className="text-xl font-bold text-foreground mt-0 mb-4">The Code</h3>
+                  <p>
+                    Levitate became my lifeline. An app that met me exactly where I was—anxious at 3 AM, or depressed on
+                    a Tuesday afternoon. It listened to my patterns, adapted to my state, and gave me what I needed in
+                    that exact moment.
+                  </p>
+                  <p>
+                    I haven't figured it all out. I'm still processing, still learning to live with a mind that doesn't
+                    always cooperate. But Levitate helps me, one session at a time.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Closing / CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-center pt-12"
+            >
+              <div className="inline-block p-2 rounded-full bg-white/50 backdrop-blur-md mb-8 border border-white/50">
+                <img
+                  src="/icon.png"
+                  alt="Los Verdan"
+                  className="w-16 h-16 rounded-full grayscale hover:grayscale-0 transition-all duration-500"
+                />
+              </div>
+              <h2 className="text-3xl font-bold text-foreground mb-6">Rise as you are.</h2>
+              <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
+                What started as my survival tool is now here for you. If you're struggling, if nothing else has worked—this
+                is for you. Rise as you are, and lift above the noise.
+              </p>
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="/"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-10 py-4 rounded-full font-bold text-lg shadow-xl shadow-primary/20 hover:opacity-90 transition-all"
+              >
+                Start Your Journey
+              </motion.a>
+              <p className="mt-8 text-sm text-muted-foreground font-medium">— Los Verdan</p>
+            </motion.div>
+          </div>
+
+          {/* Footer Info */}
+          <div className="mt-20 border-t border-black/5 pt-12 text-center">
+            <div className="flex justify-center gap-6">
+              <a href="/support" className="text-xs text-muted-foreground hover:text-primary transition-colors">
+                Contact Support
+              </a>
+              <a href="/privacy" className="text-xs text-muted-foreground hover:text-primary transition-colors">
+                Privacy Policy
+              </a>
+            </div>
+            <p className="text-muted-foreground/60 text-xs mt-4">© 2025 Levitate. Built with heart.</p>
+          </div>
+        </motion.div>
+      </div>
     </div>
   )
 }
