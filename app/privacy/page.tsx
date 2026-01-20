@@ -97,7 +97,7 @@ export default function PrivacyPage() {
                 </div>
                 <div className="md:w-2/3 prose prose-stone opacity-90">
                   <p className="leading-relaxed text-foreground/80 mb-4">
-                    Your data serves one master: **You.** We strictly use your inputs to:
+                    Your data serves one master: <strong>You.</strong> We strictly use your inputs to:
                   </p>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3 text-sm">
@@ -135,8 +135,8 @@ export default function PrivacyPage() {
                 </div>
                 <div className="md:w-2/3 prose prose-stone opacity-90">
                   <p className="leading-relaxed text-foreground/80">
-                    We employ end-to-end industry standards. Your data is encrypted in transit using **TLS 1.3** and at
-                    rest using **AES-256**. Our infrastructure is powered by Supabase, adhering to strict SOC2
+                    We employ end-to-end industry standards. Your data is encrypted in transit using <strong>TLS 1.3</strong> and at
+                    rest using <strong>AES-256</strong>. Our infrastructure is powered by Supabase, adhering to strict SOC2
                     compliance standards.
                   </p>
                 </div>
