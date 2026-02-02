@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Database, Eye, Lock, ShieldCheck, UserCheck } from "lucide-react"
+import { Bot, Clock, Database, Eye, Lock, Server, ShieldCheck, UserCheck, Users } from "lucide-react"
 
 export default function PrivacyPage() {
   return (
@@ -21,17 +21,6 @@ export default function PrivacyPage() {
         >
           {/* Header */}
           <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-              className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-primary/20 bg-white/40 backdrop-blur-md shadow-sm"
-            >
-              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs font-semibold text-primary/80 tracking-wide uppercase">
-                Transparency Report
-              </span>
-            </motion.div>
             <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 tracking-tight leading-tight">
               Your Privacy is <span className="text-primary italic">Sacred</span>.
             </h1>
@@ -75,7 +64,7 @@ export default function PrivacyPage() {
                     <li className="flex items-start gap-3 text-sm">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                       <span className="text-foreground/70">
-                        <strong className="text-foreground font-semibold">Evolution:</strong> Anonymous usage patterns
+                        <strong className="text-foreground font-semibold">Evolution:</strong> Usage patterns and interactions
                         that help us refine the app's intuition.
                       </span>
                     </li>
@@ -103,12 +92,16 @@ export default function PrivacyPage() {
                     <li className="flex items-start gap-3 text-sm">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                       <span className="text-foreground/70">
-                        Compose personalized meditation scripts in real-time.
+                        Compose personalized meditation scripts using AI in real-time.
                       </span>
                     </li>
                     <li className="flex items-start gap-3 text-sm">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                      <span className="text-foreground/70">Sync your journey across all your devices.</span>
+                      <span className="text-foreground/70">Sync your journey and premium access across all your devices.</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <span className="text-foreground/70">Improve the app experience through anonymized usage analytics.</span>
                     </li>
                   </ul>
                   <div className="mt-6 p-4 bg-primary/5 rounded-xl border border-primary/10 flex items-start gap-3">
@@ -124,7 +117,58 @@ export default function PrivacyPage() {
               {/* Divider */}
               <div className="h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
 
-              {/* Section 3: Security */}
+              {/* Section 3: AI & Third-Party Services */}
+              <section className="flex flex-col md:flex-row gap-6 md:gap-10">
+                <div className="md:w-1/3 flex-shrink-0">
+                  <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-4 text-primary">
+                    <Bot className="w-6 h-6" />
+                  </div>
+                  <h2 className="text-xl font-bold text-foreground mb-2">AI & Third-Party Services</h2>
+                  <p className="text-sm text-muted-foreground">Powering your experience.</p>
+                </div>
+                <div className="md:w-2/3 prose prose-stone opacity-90">
+                  <p className="leading-relaxed text-foreground/80 mb-4">
+                    To deliver personalized meditations, we utilize the following trusted partners:
+                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <span className="text-foreground/70">
+                        <strong className="text-foreground font-semibold">AI Content Generation:</strong> We use advanced large language models to compose personalized meditation scripts. Your inputs are processed to generate content but are not stored by AI providers for training.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <span className="text-foreground/70">
+                        <strong className="text-foreground font-semibold">Voice Synthesis:</strong> AI-powered text-to-speech services bring your meditations to life with natural, calming voices.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <span className="text-foreground/70">
+                        <strong className="text-foreground font-semibold">Payment Processing:</strong> Subscriptions are managed through Apple's App Store and RevenueCat for secure payment handling.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <span className="text-foreground/70">
+                        <strong className="text-foreground font-semibold">Analytics:</strong> We use PostHog to understand how users interact with the app. This data is anonymized and used solely to improve the experience.
+                      </span>
+                    </li>
+                  </ul>
+                  <div className="mt-6 p-4 bg-primary/5 rounded-xl border border-primary/10 flex items-start gap-3">
+                    <Server className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-foreground/80 font-medium">
+                      All meditation content is <strong>AI-generated</strong>. While we strive for quality, generated content may occasionally be imperfect or unexpected.
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              {/* Divider */}
+              <div className="h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+
+              {/* Section 4: Security */}
               <section className="flex flex-col md:flex-row gap-6 md:gap-10">
                 <div className="md:w-1/3 flex-shrink-0">
                   <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-4 text-primary">
@@ -134,18 +178,82 @@ export default function PrivacyPage() {
                   <p className="text-sm text-muted-foreground">Encrypted by default.</p>
                 </div>
                 <div className="md:w-2/3 prose prose-stone opacity-90">
-                  <p className="leading-relaxed text-foreground/80">
-                    We employ end-to-end industry standards. Your data is encrypted in transit using <strong>TLS 1.3</strong> and at
-                    rest using <strong>AES-256</strong>. Our infrastructure is powered by Supabase, adhering to strict SOC2
-                    compliance standards.
+                  <p className="leading-relaxed text-foreground/80 mb-4">
+                    Your peace of mind demands serious protection. Here's how we safeguard your data:
                   </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <span className="text-foreground/70">
+                        <strong className="text-foreground font-semibold">Encryption in Transit:</strong> All data transmitted between your device and our servers is protected using TLS 1.3, the latest security protocol.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <span className="text-foreground/70">
+                        <strong className="text-foreground font-semibold">Encryption at Rest:</strong> Your stored data is encrypted using AES-256, the same standard used by banks and governments.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <span className="text-foreground/70">
+                        <strong className="text-foreground font-semibold">Secure Infrastructure:</strong> Our backend is powered by Supabase, which maintains SOC2 Type II compliance and undergoes regular security audits.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <span className="text-foreground/70">
+                        <strong className="text-foreground font-semibold">Authentication:</strong> We use secure token-based authentication with automatic session management to protect your account.
+                      </span>
+                    </li>
+                  </ul>
                 </div>
               </section>
 
               {/* Divider */}
               <div className="h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
 
-              {/* Section 4: Rights */}
+              {/* Section 5: Data Retention */}
+              <section className="flex flex-col md:flex-row gap-6 md:gap-10">
+                <div className="md:w-1/3 flex-shrink-0">
+                  <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-4 text-primary">
+                    <Clock className="w-6 h-6" />
+                  </div>
+                  <h2 className="text-xl font-bold text-foreground mb-2">Data Retention</h2>
+                  <p className="text-sm text-muted-foreground">Nothing lingers forever.</p>
+                </div>
+                <div className="md:w-2/3 prose prose-stone opacity-90">
+                  <p className="leading-relaxed text-foreground/80 mb-4">
+                    We retain your data only as long as necessary:
+                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex items-start gap-3 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <span className="text-foreground/70">
+                        <strong className="text-foreground font-semibold">Account Data:</strong> Retained while your account is active. Deleted within 30 days of account deletion request.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <span className="text-foreground/70">
+                        <strong className="text-foreground font-semibold">Session History:</strong> Meditation sessions and journals are stored until you choose to delete them or close your account.
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3 text-sm">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                      <span className="text-foreground/70">
+                        <strong className="text-foreground font-semibold">Analytics:</strong> Anonymized usage data may be retained for up to 2 years for product improvement.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </section>
+
+
+              {/* Divider */}
+              <div className="h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+
+              {/* Section 6: Rights */}
               <section className="flex flex-col md:flex-row gap-6 md:gap-10">
                 <div className="md:w-1/3 flex-shrink-0">
                   <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-4 text-primary">
@@ -173,7 +281,7 @@ export default function PrivacyPage() {
 
           {/* Footer Info */}
           <div className="mt-12 text-center">
-            <p className="text-muted-foreground text-sm font-medium">Last Updated: December 28, 2025</p>
+            <p className="text-muted-foreground text-sm font-medium">Last Updated: January 30, 2026</p>
             <div className="flex justify-center gap-6 mt-4">
               <a href="/support" className="text-xs text-muted-foreground hover:text-primary transition-colors">
                 Contact Support

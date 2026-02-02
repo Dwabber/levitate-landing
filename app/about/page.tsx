@@ -21,15 +21,6 @@ export default function AboutPage() {
         >
           {/* Header */}
           <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-              className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-primary/20 bg-white/40 backdrop-blur-md shadow-sm"
-            >
-              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs font-semibold text-primary/80 tracking-wide uppercase">The Origin Story</span>
-            </motion.div>
             <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 tracking-tight leading-tight">
               Why I Built <span className="text-primary italic">Levitate</span>.
             </h1>

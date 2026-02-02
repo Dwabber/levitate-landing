@@ -1,7 +1,7 @@
 "use client"
 
-import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion"
-import { Brain, Moon, Lock } from "lucide-react"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { Sparkles, Moon, Target, Heart, BookOpen, LayoutGrid } from "lucide-react"
 import { useRef } from "react"
 import { Carousel3D } from "./components/carousel-3d"
 
@@ -23,45 +23,17 @@ export default function Page() {
         initial={{ y: 20 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-        className="container mx-auto px-6 pt-16 pb-8 text-center"
+        className="container mx-auto px-6 pt-20 pb-8 text-center"
       >
-        <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-primary/30 bg-card/80 backdrop-blur-sm">
-          <div className="w-5 h-5 bg-primary rounded-full flex items-center justify-center">
-            <span className="text-primary-foreground text-xs font-bold">✦</span>
-          </div>
-          <span className="text-sm text-foreground">The first bio-adaptive meditation app</span>
-        </div>
-
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-foreground leading-tight">
-          <span className="text-primary">Rise </span>
-          <span className="relative inline-block">
-            <span className="text-primary">as you are</span>
-            <svg
-              className="absolute -bottom-2 left-0 w-full"
-              height="8"
-              viewBox="0 0 200 8"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M1 5.5C50 2.5 150 2.5 199 5.5"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
-                className="text-primary"
-              />
-            </svg>
-          </span>
-          <br />
-          with Mental Wellness
+          Find your <span className="text-primary italic">quiet</span>.
         </h1>
 
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-          Most apps play you a recording. Levitate <strong>listens</strong>. Experience the world's first AI that
-          generates a unique session every time—adapting to your mood, bio-data, and needs in real-time.
+          Other apps hand you a script. Levitate writes yours—right now, right here, for exactly what you're feeling.
         </p>
 
-        {/* App Store Buttons */}
+        {/* App Store Button */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
           <motion.a
             whileHover={{ scale: 1.05 }}
@@ -100,65 +72,214 @@ export default function Page() {
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">What Makes Us Different</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Built for minds that <span className="text-primary italic">won't cooperate</span>.
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Built for real people with real minds—messy, unpredictable, and perfectly human
+            Not another meditation app. A companion that understands chaos.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
-          <motion.div
-            initial={{ y: 40 }}
-            whileInView={{ y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="bg-card rounded-2xl p-8 border border-border/50 hover:border-primary/30 transition-colors"
-          >
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-              <Brain className="w-6 h-6 text-primary" />
-            </div>
-            <h3 className="text-xl font-bold text-foreground mb-3">The Anti-App</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              No scrolling. No searching. Just open the app, and our AI instantly generates the perfect session for your
-              exact mental state.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ y: 40 }}
-            whileInView={{ y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="bg-card rounded-2xl p-8 border border-border/50 hover:border-primary/30 transition-colors"
-          >
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-              <Moon className="w-6 h-6 text-primary" />
-            </div>
-            <h3 className="text-xl font-bold text-foreground mb-3">Sleep Engineering</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Not just white noise. Dynamic, slowing rhythms backed by Cognitive Behavioral Therapy (CBT-I) to unstick
-              your mind.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ y: 40 }}
-            whileInView={{ y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-            className="bg-card rounded-2xl p-8 border border-border/50 hover:border-primary/30 transition-colors"
-          >
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-              <Lock className="w-6 h-6 text-primary" />
-            </div>
-            <h3 className="text-xl font-bold text-foreground mb-3">Private by Design</h3>
-            <p className="text-muted-foreground leading-relaxed">
-              Your thoughts are yours. All journal entries and mood data are encrypted. We sell nothing to advertisers.
-              Ever.
-            </p>
-          </motion.div>
+        {/* Features Grid - 6 Features */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
+          {[
+            {
+              title: "The Living Check-In",
+              tagline: "It knows when you're drowning.",
+              description:
+                "Not another mood tracker. A conversation. Tell Levitate how you actually feel—messy, contradictory, human—and watch it craft a session that meets you exactly where you are.",
+              icon: <Sparkles className="w-6 h-6" />,
+            },
+            {
+              title: "Sleep Drift",
+              tagline: "Fall asleep mid-sentence.",
+              description:
+                "A voice that fades as you do. Designed for racing minds at 2AM, Sleep Drift guides you down, matching your breath until you don't need it anymore.",
+              icon: <Moon className="w-6 h-6" />,
+            },
+            {
+              title: "Focus Tunnel",
+              tagline: "Silence the noise. Ship the work.",
+              description:
+                "Deep work demands deep focus. The Focus Tunnel creates a sonic cocoon that blocks distractions and keeps you in flow—with timing that adapts to your rhythm.",
+              icon: <Target className="w-6 h-6" />,
+            },
+            {
+              title: "Panic Button",
+              tagline: "For the moments you can't breathe.",
+              description:
+                "Anxiety doesn't wait. Neither do we. One tap and you're in a 3-minute reset designed to ground you before your mind spirals further.",
+              icon: <Heart className="w-6 h-6" />,
+            },
+            {
+              title: "Your Living Journal",
+              tagline: "Patterns become clarity.",
+              description:
+                "Every session leaves a trace. Over time, Levitate reveals what triggers you, what grounds you, and how far you've come. Your story, reflected back.",
+              icon: <BookOpen className="w-6 h-6" />,
+            },
+            {
+              title: "Home Screen Widgets",
+              tagline: "Glance. Stay accountable.",
+              description:
+                "Five beautiful widgets that live on your home screen: track your streak, see today's intention, and remember why you started. No app required.",
+              icon: <LayoutGrid className="w-6 h-6" />,
+            },
+          ].map((feature, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              className="group p-8 rounded-3xl bg-white/40 backdrop-blur-md border border-white/50 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+            >
+              <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 text-primary shadow-sm group-hover:scale-110 transition-transform duration-300">
+                {feature.icon}
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-2">{feature.title}</h3>
+              <p className="text-primary font-medium text-sm mb-3 italic">{feature.tagline}</p>
+              <p className="text-muted-foreground leading-relaxed text-sm">{feature.description}</p>
+            </motion.div>
+          ))}
         </div>
       </section>
+
+      {/* Free to Breathe Section */}
+      <section className="container mx-auto px-6 py-24">
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+            Free to <span className="text-primary italic">breathe</span>.
+          </h2>
+          <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
+            The essentials are free. Forever. No paywalls on peace of mind.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Free Tier */}
+            <div className="p-8 rounded-3xl bg-white/60 backdrop-blur-md border border-white/60 text-left">
+              <div className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full mb-4 uppercase tracking-wide">
+                Free Forever
+              </div>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Start Here</h3>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-center gap-3">
+                  <span className="text-primary">✓</span> Quick Resets (3-5 min)
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-primary">✓</span> Living Journal
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-primary">✓</span> Progress Insights
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-primary">✓</span> Home Screen Widgets
+                </li>
+              </ul>
+            </div>
+
+            {/* Plus Tier */}
+            <div className="p-8 rounded-3xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 text-left">
+              <div className="inline-block px-3 py-1 bg-primary text-white text-xs font-bold rounded-full mb-4 uppercase tracking-wide">
+                Levitate Plus
+              </div>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Go Deeper</h3>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-center gap-3">
+                  <span className="text-primary">✓</span> Living Check-Ins
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-primary">✓</span> Unlimited Sessions
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-primary">✓</span> Sleep Drift (10-45 min)
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-primary">✓</span> Focus Tunnel
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-primary">✓</span> Personalized Guidance
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-primary">✓</span> Premium Soundscapes
+                </li>
+              </ul>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Origin Story CTA */}
+      <section className="container mx-auto px-6 py-16">
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-2xl mx-auto text-center"
+        >
+          <p className="text-muted-foreground mb-4 text-lg">
+            Built by someone who needed it first.
+          </p>
+          <a
+            href="/about"
+            className="text-primary font-semibold hover:underline inline-flex items-center gap-2 group"
+          >
+            Read the story
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+        </motion.div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="container mx-auto px-6 py-24">
+        <motion.div
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+            Your next breath is waiting.
+          </h2>
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            href="#"
+            className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-10 py-4 rounded-full font-bold text-lg shadow-xl shadow-primary/20 hover:opacity-90 transition-all"
+          >
+            Download Free
+          </motion.a>
+        </motion.div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-black/5 py-12">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-lg">L</span>
+              </div>
+              <span className="font-bold text-xl text-foreground">LEVITATE</span>
+            </div>
+            <div className="flex items-center gap-6 text-sm text-muted-foreground">
+              <a href="/about" className="hover:text-primary transition-colors">About</a>
+              <a href="/support" className="hover:text-primary transition-colors">Support</a>
+              <a href="/privacy" className="hover:text-primary transition-colors">Privacy</a>
+              <a href="/terms" className="hover:text-primary transition-colors">Terms</a>
+            </div>
+            <p className="text-muted-foreground text-sm">© 2026 Levitate</p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }

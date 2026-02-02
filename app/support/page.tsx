@@ -1,9 +1,82 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { MessageCircleQuestion, Mail, CreditCard, Volume2 } from "lucide-react"
+import { MessageCircleQuestion, Mail, CreditCard, Volume2, Shield, Smartphone, RefreshCw, Sparkles, Moon, Database, Wifi } from "lucide-react"
 
 export default function SupportPage() {
+  const faqs = [
+    // Subscription & Billing
+    {
+      category: "Subscription",
+      icon: <CreditCard className="w-5 h-5" />,
+      question: "How do I cancel my subscription?",
+      answer: "Manage this directly via your Apple ID settings. Go to Settings > Your Name > Subscriptions on your iPhone."
+    },
+    {
+      category: "Subscription",
+      icon: <Sparkles className="w-5 h-5" />,
+      question: "What's included in the free version?",
+      answer: "Quick Resets (3-5 min sessions), your Living Journal, Progress Insights, and all Home Screen Widgets are completely free. Forever."
+    },
+    {
+      category: "Subscription",
+      icon: <CreditCard className="w-5 h-5" />,
+      question: "What does Levitate Plus include?",
+      answer: "Living Check-Ins, unlimited sessions, Sleep Drift (10-45 min), Focus Tunnel, personalized guidance, and premium soundscapes."
+    },
+    // Technical Issues
+    {
+      category: "Technical",
+      icon: <Volume2 className="w-5 h-5" />,
+      question: "Why is audio not playing?",
+      answer: "Check your \"Silent Mode\" switch (on the side of your iPhone) and ensure your system volume is turned up. Also check if Bluetooth is connected to another device."
+    },
+    {
+      category: "Technical",
+      icon: <Wifi className="w-5 h-5" />,
+      question: "Sessions are taking too long to load",
+      answer: "Sessions are generated in real-time, which requires an internet connection. Try switching between WiFi and cellular, or move to an area with better signal."
+    },
+    {
+      category: "Technical",
+      icon: <Smartphone className="w-5 h-5" />,
+      question: "The app keeps crashing",
+      answer: "Try force-closing the app and reopening it. If issues persist, delete and reinstall the app—your data is safely stored in your account."
+    },
+    // Privacy & Data
+    {
+      category: "Privacy",
+      icon: <Shield className="w-5 h-5" />,
+      question: "Is my data secure?",
+      answer: "Absolutely. All data is encrypted using AES-256 at rest and TLS 1.3 in transit. We use Supabase with SOC2 Type II compliance. Your peace of mind is our priority."
+    },
+    {
+      category: "Privacy",
+      icon: <Database className="w-5 h-5" />,
+      question: "Can I delete all my data?",
+      answer: "Yes. Contact us at jiggsdwabber@gmail.com and we'll permanently delete your account and all associated data within 7 days."
+    },
+    {
+      category: "Privacy",
+      icon: <Shield className="w-5 h-5" />,
+      question: "Do you sell my data?",
+      answer: "Never. We don't sell, rent, or share your data with third parties for marketing. Period."
+    },
+    // Features
+    {
+      category: "Features",
+      icon: <Moon className="w-5 h-5" />,
+      question: "How does Sleep Drift work?",
+      answer: "Sleep Drift creates a guided session that gradually fades as you drift off. It's designed for racing minds at 2AM—matching your breath until you don't need it anymore."
+    },
+    {
+      category: "Features",
+      icon: <Sparkles className="w-5 h-5" />,
+      question: "Why does each session feel different?",
+      answer: "Every session is generated uniquely for you based on what you share during check-in. No two sessions are ever exactly the same."
+    },
+  ]
+
   return (
     <div className="min-h-screen bg-[#f5f2ee] relative overflow-hidden">
       {/* Background Gradients */}
@@ -21,15 +94,6 @@ export default function SupportPage() {
         >
           {/* Header */}
           <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1, duration: 0.6 }}
-              className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-primary/20 bg-white/40 backdrop-blur-md shadow-sm"
-            >
-              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs font-semibold text-primary/80 tracking-wide uppercase">Support Center</span>
-            </motion.div>
             <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6 tracking-tight leading-tight">
               We're here to <span className="text-primary italic">Help</span>.
             </h1>
@@ -48,36 +112,27 @@ export default function SupportPage() {
                     <MessageCircleQuestion className="w-6 h-6" />
                   </div>
                   <h2 className="text-xl font-bold text-foreground mb-2">Common Questions</h2>
-                  <p className="text-sm text-muted-foreground">Quick solutions.</p>
+                  <p className="text-sm text-muted-foreground">Quick answers to frequent questions.</p>
                 </div>
-                <div className="md:w-2/3 space-y-8">
-                  <div className="bg-white/50 rounded-2xl p-6 border border-white/60">
-                    <div className="flex items-start gap-4">
-                      <div className="p-2 bg-primary/10 rounded-lg text-primary flex-shrink-0">
-                        <CreditCard className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-2">How do I cancel my subscription?</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          Manage this directly via your Apple ID settings. Go to <strong>Settings &gt; Your Name &gt; Subscriptions</strong> on your iPhone.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="bg-white/50 rounded-2xl p-6 border border-white/60">
-                    <div className="flex items-start gap-4">
-                      <div className="p-2 bg-primary/10 rounded-lg text-primary flex-shrink-0">
-                        <Volume2 className="w-5 h-5" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-foreground mb-2">Why is audio not playing?</h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          Check your "Silent Mode" switch (on the side of your iPhone) and ensure your system volume is turned up.
-                        </p>
+                <div className="md:w-2/3 space-y-4">
+                  {faqs.map((faq, index) => (
+                    <div key={index} className="bg-white/50 rounded-2xl p-5 border border-white/60">
+                      <div className="flex items-start gap-4">
+                        <div className="p-2 bg-primary/10 rounded-lg text-primary flex-shrink-0">
+                          {faq.icon}
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="text-xs font-medium text-primary/70 uppercase tracking-wide">{faq.category}</span>
+                          </div>
+                          <h3 className="font-semibold text-foreground mb-2">{faq.question}</h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed">
+                            {faq.answer}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </section>
 
@@ -90,12 +145,12 @@ export default function SupportPage() {
                   <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center mb-4 text-primary">
                     <Mail className="w-6 h-6" />
                   </div>
-                  <h2 className="text-xl font-bold text-foreground mb-2">Direct Support</h2>
-                  <p className="text-sm text-muted-foreground">Human assistance.</p>
+                  <h2 className="text-xl font-bold text-foreground mb-2">Still Need Help?</h2>
+                  <p className="text-sm text-muted-foreground">We respond within 24 hours.</p>
                 </div>
                 <div className="md:w-2/3 prose prose-stone opacity-90">
                   <p className="leading-relaxed text-foreground/80 mb-6">
-                    If you haven't found what you're looking for, our team is ready to assist. We typically respond within 24 hours.
+                    Can't find what you're looking for? Our team is ready to assist with anything—technical issues, account questions, or just feedback.
                   </p>
                   <motion.a
                     whileHover={{ scale: 1.02 }}
@@ -122,7 +177,7 @@ export default function SupportPage() {
                 Terms of Service
               </a>
             </div>
-            <p className="text-muted-foreground/60 text-xs mt-4">© 2025 Levitate. All rights reserved.</p>
+            <p className="text-muted-foreground/60 text-xs mt-4">© 2026 Levitate. All rights reserved.</p>
           </div>
         </motion.div>
       </div>
