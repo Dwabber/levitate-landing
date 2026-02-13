@@ -119,10 +119,10 @@ export default function AboutPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-center pt-12"
             >
-              <h2 className="text-3xl font-bold text-foreground mb-6">Rise as you are.</h2>
+              <h2 className="text-3xl font-bold text-foreground mb-6">.</h2>
               <p className="text-lg text-muted-foreground mb-10 max-w-xl mx-auto">
                 What started as my survival tool is now here for you. If you're struggling, if nothing else has worked—this
-                is for you. Rise as you are, and lift above the noise.
+                is for you. , and lift above the noise.
               </p>
               <motion.a
                 whileHover={{ scale: 1.05 }}

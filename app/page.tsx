@@ -26,11 +26,22 @@ export default function Page() {
         className="container mx-auto px-6 pt-20 pb-8 text-center"
       >
         <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-foreground leading-tight">
-          Find your <span className="text-primary italic">quiet</span>.
+          <span className="text-primary">Rise as </span>
+          <span className="text-primary relative inline-block">
+            you are
+            {/* Hand-drawn style underscore */}
+            <svg className="absolute w-[110%] h-4 -bottom-2 -left-1 text-primary/80" viewBox="0 0 200 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12C35 5 120 5 195 12" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
         </h1>
 
+        <p className="text-2xl md:text-5xl font-bold text-foreground max-w-4xl mx-auto mb-8 leading-tight tracking-tight">
+          No courses. No classes. Just you.
+        </p>
+
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-          Other apps hand you a script. Levitate writes yours—right now, right here, for exactly what you're feeling.
+          Not another meditation app. No classes, no scrolling, no libraries. Just a unique session and adaptive environment that meets you exactly where you are—whether you need to unclench, focus, or fly.
         </p>
 
         {/* App Store Button */}
@@ -260,26 +271,7 @@ export default function Page() {
         </motion.div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-black/5 py-12">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">L</span>
-              </div>
-              <span className="font-bold text-xl text-foreground">LEVITATE</span>
-            </div>
-            <div className="flex items-center gap-6 text-sm text-muted-foreground">
-              <a href="/about" className="hover:text-primary transition-colors">About</a>
-              <a href="/support" className="hover:text-primary transition-colors">Support</a>
-              <a href="/privacy" className="hover:text-primary transition-colors">Privacy</a>
-              <a href="/terms" className="hover:text-primary transition-colors">Terms</a>
-            </div>
-            <p className="text-muted-foreground text-sm">© 2026 Levitate</p>
-          </div>
-        </div>
-      </footer>
+
     </div>
   )
 }

@@ -6,12 +6,11 @@ export function Footer() {
             <div className="container mx-auto px-6 py-12">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                     <Link href="/" className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
-                            <span className="text-primary-foreground font-bold text-lg">L</span>
+                        <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-sm">
                         </div>
                         <div>
                             <div className="font-bold text-foreground">LEVITATE</div>
-                            <div className="text-xs text-muted-foreground">© 2025 Levitate</div>
+                            <div className="text-xs text-muted-foreground">© 2026 Levitate</div>
                         </div>
                     </Link>
 

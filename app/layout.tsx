@@ -10,7 +10,7 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Levitate | Casual Therapy for Your Mind",
+  title: "Levitate | Rise as you are",
   description:
     "Transform your well-being with AI-powered meditation sessions that adapt to your mood. Personalized mindfulness for every moment of your day.",
   generator: "v0.app",

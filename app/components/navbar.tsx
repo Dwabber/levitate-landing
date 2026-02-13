@@ -17,8 +17,7 @@ export function Navbar() {
             <header className="border-b border-border/30 bg-card/50 backdrop-blur-sm sticky top-0 z-50">
                 <div className="container mx-auto px-6 py-4 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
-                            <span className="text-primary-foreground font-bold text-lg">L</span>
+                        <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center shadow-sm">
                         </div>
                         <span className="font-bold text-xl text-foreground">LEVITATE</span>
                     </Link>
