@@ -127,7 +127,7 @@ export default function AboutPage() {
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="/"
+                href="https://apps.apple.com/app/levitate-personal-guidance/id6757069448"
                 className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-10 py-4 rounded-full font-bold text-lg shadow-xl shadow-primary/20 hover:opacity-90 transition-all"
               >
                 Start Your Journey

@@ -57,7 +57,7 @@ export function Navbar() {
                         <motion.a
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            href="#"
+                            href="https://apps.apple.com/app/levitate-personal-guidance/id6757069448"
                             className="bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-semibold text-sm hover:opacity-90 transition-opacity hidden md:block"
                         >
                             Download App
@@ -153,7 +153,7 @@ export function Navbar() {
 
                             <div className="mt-auto pt-8">
                                 <a
-                                    href="#"
+                                    href="https://apps.apple.com/app/levitate-personal-guidance/id6757069448"
                                     className="flex items-center justify-center w-full bg-primary text-primary-foreground px-6 py-4 rounded-xl font-bold text-lg shadow-lg hover:opacity-90 transition-opacity"
                                 >
                                     Download App
